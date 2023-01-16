@@ -23,9 +23,10 @@ export class ContactsForm extends Component {
 
   render() {
     const { name, number } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label htmlFor={this.nameId}>
           Name
           <input
             type="text"
@@ -37,7 +38,7 @@ export class ContactsForm extends Component {
             required
           />
         </label>
-        <label>
+        <label htmlFor={this.numberId}>
           Number
           <input
             type="tel"
