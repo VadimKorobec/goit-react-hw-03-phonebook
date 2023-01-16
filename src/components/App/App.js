@@ -33,8 +33,8 @@ export class App extends Component {
         }));
   };
 
-  onChange = e => {
-    this.setState({ filter: e.target.value });
+  onChange = event => {
+    this.setState({ filter: event.target.value });
   };
 
   findContacts = () => {
