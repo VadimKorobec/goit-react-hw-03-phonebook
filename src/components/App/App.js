@@ -54,11 +54,13 @@ export class App extends Component {
   };
 
   changeFilter = event => {
-    this.setState({ filter: event.currentTarget.value });
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
   };
 
   render() {
     const { filter } = this.state;
+    const visibleContacts = this.getContacts();
 
     return (
       <div>
