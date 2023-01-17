@@ -1,5 +1,6 @@
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { ContactsList } from 'components/ContactsList/ContactsList';
+import { Filter } from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
 
@@ -34,6 +35,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <ContactsForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
+        <Filter />
         <ContactsList
           contacts={this.state.contacts}
           onDelete={this.deleteContact}
