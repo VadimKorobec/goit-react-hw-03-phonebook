@@ -1,9 +1,13 @@
 import { ContactItem } from 'components/ContactsItem/ContactsItem';
 
-export const ContactsList = () => {
+export const ContactsList = ({ items }) => {
   return (
     <ul>
-      <ContactItem />
+      {items.map((item, idx) => (
+        <li key={idx}>
+          <ContactItem contact={item} />
+        </li>
+      ))}
     </ul>
   );
 };
