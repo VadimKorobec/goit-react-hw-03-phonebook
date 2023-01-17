@@ -1,3 +1,9 @@
+import { ContactItem } from 'components/ContactsItem/ContactsItem';
+
 export const ContactsList = () => {
-  return <ul></ul>;
+  return (
+    <ul>
+      <ContactItem />
+    </ul>
+  );
 };
