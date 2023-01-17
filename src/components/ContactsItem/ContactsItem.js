@@ -1,4 +1,4 @@
-export const ContactItem = ({ contact: { id, name, number }, onDelete }) => {
+export const ContactItem = ({ id, name, number, onDelete }) => {
   return (
     <li key={id}>
       <p>
