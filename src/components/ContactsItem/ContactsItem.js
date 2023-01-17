@@ -1,8 +1,8 @@
 export const ContactItem = () => {
   return (
-    <li>
+    <div>
       <p></p>
       <button type="button">Delete</button>
-    </li>
+    </div>
   );
 };
