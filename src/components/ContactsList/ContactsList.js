@@ -1,11 +1,11 @@
 import { ContactItem } from 'components/ContactsItem/ContactsItem';
 
-export const ContactsList = ({ items }) => {
+export const ContactsList = ({ contacts }) => {
   return (
     <ul>
-      {items.map((item, idx) => (
+      {contacts.map((contact, idx) => (
         <li key={idx}>
-          <ContactItem contact={item} />
+          <ContactItem contact={contact} />
         </li>
       ))}
     </ul>
