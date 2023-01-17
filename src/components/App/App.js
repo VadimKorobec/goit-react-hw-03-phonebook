@@ -30,7 +30,12 @@ export class App extends Component {
   };
 
   getContacsts = () => {
-    const normalizedFilter = this.state;
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
   };
 
   changeFilter = event => {
@@ -39,6 +44,8 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
+    const visibleContacts = this.getContacsts();
+
     return (
       <div>
         <h1>Phonebook</h1>
