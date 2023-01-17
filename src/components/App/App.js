@@ -29,13 +29,17 @@ export class App extends Component {
     }));
   };
 
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
+
   render() {
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactsForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
-        <Filter />
+        <Filter value={filter} />
         <ContactsList
           contacts={this.state.contacts}
           onDelete={this.deleteContact}
