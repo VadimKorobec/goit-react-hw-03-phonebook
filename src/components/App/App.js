@@ -15,9 +15,24 @@ export class App extends Component {
     filter: '',
   };
 
-  addContact = (name, number) => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, { id: nanoid(), name, number }],
+  addContact = ({ name, number }) => {
+    const normlizedFind = name.toLowerCase();
+    const findName = this.state.contacts.find(
+      contact => contact.name.toLowerCase() === normlizedFind
+    );
+    if (findName) {
+      return alert(`${name} is already in contacts.`);
+    }
+
+    const findNumber = this.state.contacts.find(
+      contact => contact.number === number
+    );
+    if (findNumber) {
+      return alert(`This phone number is already in use.`);
+    }
+
+    this.setState(({ contacts }) => ({
+      contacts: [{ name, number, id: nanoid() }, ...contacts],
     }));
   };
 
@@ -44,7 +59,6 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const visibleContacts = this.getContacsts();
 
     return (
       <div>
