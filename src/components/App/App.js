@@ -56,6 +56,10 @@ export class App extends Component {
     this.setState({ [name]: value });
   };
 
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getContacts();
