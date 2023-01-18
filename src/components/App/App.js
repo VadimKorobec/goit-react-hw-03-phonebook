@@ -32,7 +32,7 @@ export class App extends Component {
     }
 
     this.setState(({ contacts }) => ({
-      contacts: [{ name, number, id: nanoid() }, ...contacts],
+      contacts: [{ id: nanoid(), name, number }, ...contacts],
     }));
   };
 
@@ -57,7 +57,18 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    console.log('App componentDidMount');
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
   }
 
   render() {
